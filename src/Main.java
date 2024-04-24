@@ -49,24 +49,23 @@ public class Main {
                     //lecture = scanner
                     //USD, ARS = String
                     //direction = API base URL
-                    //gson = Interpret Currency API responses that are in JSON format
                     //money = List that stores objects of type Money
-                    conversion(lecture, "USD", "ARS", direction, gson, money);
+                    conversion(lecture, "USD", "ARS", direction, money);
                     break;
                 case 2:
-                    conversion(lecture, "ARS", "USD", direction, gson, money);
+                    conversion(lecture, "ARS", "USD", direction, money);
                     break;
                 case 3:
-                    conversion(lecture, "USD", "CLP", direction, gson, money);
+                    conversion(lecture, "USD", "CLP", direction, money);
                     break;
                 case 4:
-                    conversion(lecture, "CLP", "USD", direction, gson, money);
+                    conversion(lecture, "CLP", "USD", direction, money);
                     break;
                 case 5:
-                    conversion(lecture, "ARS", "CLP", direction, gson, money);
+                    conversion(lecture, "ARS", "CLP", direction, money);
                     break;
                 case 6:
-                    conversion(lecture, "CLP", "ARS", direction, gson, money);
+                    conversion(lecture, "CLP", "ARS", direction, money);
                     break;
                 case 7:
                     System.out.println("Thanks for using my program! :)))");
@@ -80,13 +79,13 @@ public class Main {
     }
 
     //Private method that performs currency conversion
-    private static void conversion(Scanner scanner, String fromCurrency, String toCurrency, String apiURL, Gson gson, List<Money> moneyList) {
+    private static void conversion(Scanner scanner, String fromCurrency, String toCurrency, String apiURL, List<Money> moneyList) {
         System.out.print("Enter the amount in " + fromCurrency + ": ");
         double amount = scanner.nextDouble();
         //Creation of a Money object to handle the data entered by the user
         Money originalMoney = new Money(amount, fromCurrency);
         //Interact with the API to convert the value of originalMoney to the specified currency in toCurrency
-        Money convertedMoney = MoneyConsult.convertCurrency(originalMoney, toCurrency, apiURL, gson);
+        Money convertedMoney = MoneyConsult.convertCurrency(originalMoney, toCurrency, apiURL);
         if (convertedMoney != null) {
             moneyList.add(convertedMoney);
             System.out.println("The money converted from " + fromCurrency + " to " + toCurrency + " is: " + convertedMoney);

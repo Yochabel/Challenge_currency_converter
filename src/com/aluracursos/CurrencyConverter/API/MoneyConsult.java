@@ -11,11 +11,13 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 
 public class MoneyConsult {
-    public static Money convertCurrency(Money originalMoney, String toCurrency, String direction, Gson gson) {
+    public static Money convertCurrency(Money originalMoney, String toCurrency, String direction) {
         HttpClient client = HttpClient.newHttpClient(); //Create new HTTP client
         //New API request
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(direction + originalMoney.getCurrency()))
+                .timeout(Duration.ofMinutes(2))
+                .header("Content-Type", "application/json")
                 .build();
 
         try {
