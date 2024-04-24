@@ -1,4 +1,4 @@
-<h1 align="center"> Currency converter </h1> ![Logo Currency Converter](https://github.com/Yochabel/Challenge_currency_converter/assets/109246585/266b1dc6-49cf-4dee-abf0-8193a108f431)
+<h1 align="center"> Currency converter </h1>
 
 ## Project Description
 This project is a currency converter that makes requests to an exchange rate API to manipulate JSON data and filter and display the currencies of the dollar, Argentine peso and Chilean peso.
